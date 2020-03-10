@@ -1,0 +1,1 @@
+select xsornum,xvehicle,xdriver,xmovetype from vmmovereg where xsornum='PCMLMOVS0120-000161'
