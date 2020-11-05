@@ -1,14 +1,14 @@
 select xordernum,xsornum,xvehicle,xtwh,xqtyord,xrate,xprime,xbase,xstatusord,
 (select ximtrnnum from vmfuelitem where xordernum=vmrepmaint.xordernum) from vmrepmaint 
-where xordernum='PCMLFTCN0619-003471'
+where xordernum='PCMLFTCN0320-003273'
 
 select xordernum,xitem,xqtyord,xrate,xamount,ximtrnnum from vmfuelitem where xordernum='PCMLFTCN0619-003264'
 
-select ximtmptrn,xref,xvehicle,xwh,xstatustrn from imtemptrn where ximtmptrn='PCMLSR--1019-002287'
+select ximtmptrn,xref,xvehicle,xwh,xstatustrn from imtemptrn where ximtmptrn='PCMLDSR-0320-003273'
 
-select ximtmptrn,xitem,xqtyord,xqtyreq from imtemptdt where ximtmptrn='PCMLDSR-0719-000308' or  
+select ximtmptrn,xitem,xqtyord,xqtyreq from imtemptdt where ximtmptrn='PCMLDSR-0320-003273' or  
 ximtmptrn='PCMsssLDSR-0619-002286'
-select xsornum,xvehicle,zid,dumzid from vmmovereg where xsornum='PCMLMOV-0619-004937'
+select xsornum,xvehicle,zid,dumzid from vmmovereg where xsornum='PCMLMOV-0320-003586'
 
 select * from imtrn where xdocnum='PCMLDSR-0619-002265'
 select * from glheader where xref='PCMLDSR-0619-002265'
