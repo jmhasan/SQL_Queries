@@ -1,13 +1,13 @@
 
-select * from RouteInfo where RouteID in (338,339,340,343,344,345,347,349,351,352)
+select * from RouteInfo where RouteID in (41,347,348,349,350)
 
-select * from RouteDetailInfo where   RIID=527-- in (524,531,532,527,756,775,776)
+select distinct RouteID from RouteDetailInfo where   RIID=530-- in (524,531,532,527,756,775,776)
 
-select * from Territory where TerritoryID in (40,41,43,44)
-select * from TerritoryDetail where TerritoryID in (40,41,43,44)
+select * from Territory where TerritoryID=41 in (40,41,43,44)
+select * from TerritoryDetail where TerritoryID=41 in (40,41,43,44)
 
-select * from Zone where ZoneID=50
-select * from ZoneDetail where ZoneID=50
+select * from Zone where ZoneID=4
+select * from ZoneDetail where ZoneID=4 --502
 
 select * from SalesPerson where SalesPersonID=527
 select * from Customer where CustomerID in (375,4987,10502,4157,11115,5052,2875)
