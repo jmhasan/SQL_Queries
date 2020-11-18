@@ -19,6 +19,6 @@ select h.zid,h.xcus,0 DORemaining,0 tillsales,0 ondsales,sum(xqtychl/20) DARemai
 on h.zid=d.zid and h.xchlnum=d.xchlnum where xstatuschl='3-Invoiced' and CONVERT(date,DATEADD(HOUR,-6,xconfirmt))>'2020-11-16' 
 and xadvnum not in (select xadvnum from opadvice where CONVERT(date,DATEADD(HOUR,-6,xconfirmt))>'2020-11-16') group by h.zid,h.xcus 
 ) 
-select xsimcardno,case when xsimcardno='Corporate' then xspouse else xbloodgrp end xbloodgrp, sum(DORemaining) DORemaining, 
+select xsimcardno Division,(case when xsimcardno='Corporate' then xspouse else xbloodgrp end) Zone, sum(DORemaining) DORemaining, 
 sum(tillsales) tillsales, sum(ondsales) ondsales,sum(DARemaining) DARemaining from opsalesdo t join cacus c on t.zid=c.zid 
 and t.xcus=c.xcus where xsimcardno<>'Bag Plant' group by xsimcardno,case when xsimcardno='Corporate' then xspouse else xbloodgrp end
