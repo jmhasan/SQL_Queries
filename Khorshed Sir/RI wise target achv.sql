@@ -3,7 +3,7 @@ DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
 SET @fxdate = '2020-11-01'
-SET @txdate = '2020-11-18'
+SET @txdate = '2020-11-21'
 set @xyear=2020
 set @xper=11;
 
@@ -16,7 +16,7 @@ and xdiv in ('Dhaka','Out Dhaka','Corporate')
 --and xrow not in (select xrow from opchallandt where xdatecom between  '2020-09-02' and '2020-09-13' and xdiv in ('Dhaka','Out Dhaka') )
 group by xdiv,xzone,xteam 
 union all 
-select xsimcardno xdiv,xzone,xemp,xempnew,0 xrow,xqty,0 xqtychl from opritargetdt where xyear=2020 and xper=11 and 
+select xsimcardno xdiv,xzone,xemp,xempnew,0 xrow,xqty,0 xqtychl from opritargetdt where xyear=2020 and xper=@xper and 
 xemp not in (select xteam from opchallan where xdatecom between  @fxdate and @txdate
 and xdiv in ('Dhaka','Out Dhaka','Corporate') ))
 
