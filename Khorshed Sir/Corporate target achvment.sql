@@ -2,10 +2,10 @@ DECLARE @fxdate AS date
 DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
-SET @fxdate = '2020-11-01'
-SET @txdate = '2020-11-21'
+SET @fxdate = '2020-12-01'
+SET @txdate = '2020-12-07'
 set @xyear=2020
-set @xper=11;
+set @xper=12;
 
 with xyz as ( 
 select h.zid,xsub,d.xprime,--(case when xtrngl='INOP' and xyear='2020' and xper='3' then xqty else 0 end ) xqty, 
@@ -27,7 +27,7 @@ SUM(collectionamount) collectionamount,SUM(xprime)balance from xyz
 group by zid,xsub) 
 select xriid RI_Code,(select xname from prmst where zid=100000 and xemp=cte2.xriid) RI_Name , 
 coalesce((select xqty from opritargetdt where xyear=@xyear and xper=@xper and xemp=cte2.xriid and xemp>''),0) SalesTarget, 
-SUM(salesqty) salesqty,SUM(saleamount) saleamount,coalesce((select xamount from opritargetdt where xyear=2020 and xper=11 and xemp=cte2.xriid and xemp>''),0) SalesTarget, 
+SUM(salesqty) salesqty,SUM(saleamount) saleamount,coalesce((select xamount from opritargetdt where xyear=@xyear and xper=@xper and xemp=cte2.xriid and xemp>''),0) SalesTarget, 
 SUM(collectionamount) collectionamount, 
 SUM(balance) balance,(SUM(balance)/SUM(saleamount))*30 DSO from cte2 
 group by xriid order by xriid

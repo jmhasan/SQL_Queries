@@ -2,10 +2,10 @@ DECLARE @fxdate AS date
 DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
-SET @fxdate = '2020-11-01'
-SET @txdate = '2020-11-21'
+SET @fxdate = '2020-12-01'
+SET @txdate = '2020-12-07'
 set @xyear=2020
-set @xper=11;
+set @xper=12;
 
 with cte as 
 (select xdiv,xzone,xteam xemp,(select xempnew from opritargetdt where xyear=@xyear and xper=@xper and xemp=opchallandt.xteam) xempnew, 
@@ -16,7 +16,7 @@ and xdiv in ('Dhaka','Out Dhaka','Corporate')
 --and xrow not in (select xrow from opchallandt where xdatecom between '2020-09-02' and '2020-09-13' and xdiv in ('Dhaka','Out Dhaka') ) 
 group by xdiv,xzone,xteam 
 union all 
-select xsimcardno xdiv,xzone,xemp,xempnew,0 xrow,xqty,0 xqtychl from opritargetdt where xyear=2020 and xper=11 and 
+select xsimcardno xdiv,xzone,xemp,xempnew,0 xrow,xqty,0 xqtychl from opritargetdt where xyear=@xyear and xper=@xper and 
 xemp not in (select xteam from opchallan where xdatecom between @fxdate and @txdate and xdiv in ('Dhaka','Out Dhaka','Corporate') )) 
 select xdiv Division,xzone Zone,xempnew AI_Code, 
 (select xname from prmst where xemp=cte.xempnew and zid=100000) AI_Name, 
