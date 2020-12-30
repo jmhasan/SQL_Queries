@@ -1,7 +1,7 @@
 DECLARE @fxdate AS date
 DECLARE @txdate AS date
 SET @fxdate = '2020-12-01'
-SET @txdate = '2020-12-07';
+SET @txdate = '2020-12-29';
 
 WITH opsalesdo (zid,xcus,DORemaining, tillsales, ondsales,DARemaining) 
 AS( 

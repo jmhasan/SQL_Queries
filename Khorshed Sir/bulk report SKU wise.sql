@@ -1,13 +1,13 @@
 select c.xbloodgrp Zone,d.xtypecat Item_Type,
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt))='2020-12-07' then xqtychl/20 else 0 end) ondsales,
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt))='2020-12-29' then xqtychl/20 else 0 end) ondsales,
 
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2020-12-01' and '2020-12-07' 
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2020-12-01' and '2020-12-29' 
  then (xqtychl/20) else 0 end) tillsales,
 
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2020-11-01' and '2020-11-07'
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2020-11-01' and '2020-11-29'
 then  (xqtychl/20) else 0 end) tilldatelastmonth,
 
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2019-11-01' and '2019-11-07'
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2019-11-01' and '2019-11-29'
 then  (xqtychl/20) else 0 end) tilldatelastyear
 
 from opchallan h join opchalland d on h.zid=d.zid and h.xchlnum=d.xchlnum
