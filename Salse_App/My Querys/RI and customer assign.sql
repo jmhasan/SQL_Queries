@@ -1,7 +1,7 @@
 
 select distinct TerritoryID from RouteInfo where RouteID  in (446,448,469,470,471)
 
-select MAX(RouteDetailID)  from RouteDetailInfo where   RIID=765 -- in (524,531,532,527,756,775,776)
+select distinct RouteID  from RouteDetailInfo where   RIID=763 -- in (524,531,532,527,756,775,776)
 
 select * from Territory where TerritoryID  in (157,163,164,165)
 select distinct TSOID from TerritoryDetail where TerritoryID in (157,163,164,165)

@@ -2,8 +2,8 @@ DECLARE @fxdate AS date
 DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
-SET @fxdate = '2020-12-01'
-SET @txdate = '2020-12-29'
+SET @fxdate = '2021-01-01'
+SET @txdate = '2021-01-04'
 set @xyear=2020
 set @xper=12;
 
