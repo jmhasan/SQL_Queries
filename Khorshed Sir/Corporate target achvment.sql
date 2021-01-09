@@ -3,9 +3,9 @@ DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
 SET @fxdate = '2021-01-01'
-SET @txdate = '2021-01-04'
-set @xyear=2020
-set @xper=12;
+SET @txdate = '2021-01-08'
+set @xyear=2021
+set @xper=01;
 
 with xyz as ( 
 select h.zid,xsub,d.xprime,--(case when xtrngl='INOP' and xyear='2020' and xper='3' then xqty else 0 end ) xqty, 
