@@ -3,7 +3,7 @@ DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
 SET @fxdate = '2021-01-01'
-SET @txdate = '2021-01-18'
+SET @txdate = '2021-01-22'
 set @xyear=2021
 set @xper=01;
 
