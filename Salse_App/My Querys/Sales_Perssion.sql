@@ -1,9 +1,9 @@
-select d.EmployeeCode,EmployeeName,d.EmployeeID,d.DesignationID,h.Email,h.[Password]
- from  [user] h join Employee d on h.EmployeeID=d.EmployeeID  where 
- d.EmployeeCode in ('003674') --  003654  002100
+select d.EmployeeCode,EmployeeName,d.EmployeeID,d.DesignationID,h.Email,h.[Password] 
+ from  [user] h join Employee d on h.EmployeeID=d.EmployeeID   where 
+  d.EmployeeCode in ('002512') --  003654  002100
  
-select * from Employee where EmployeeID=808 
-select * from [user] where  Email='003674@premiercement.com'
+select * from Employee where EmployeeID=570 
+select * from [user] where   Email='m.syduzzaman@premiercement.com' and EmployeeID=818
 
 select h.TerritoryID,h.RouteID,h.RouteName,d.RIID,IsVoid from RouteInfo  h join RouteDetailInfo d on h.RouteID=d.RouteID
 where d.RIID in (527)
@@ -23,12 +23,13 @@ select * from Employee where EmployeeID=359
 select * from Zone where ZoneID=21
 
 select * from Customer where  CustomerID=10456
-select * from Customer where CustomerCode='CUS-005998'
+select * from Customer where CustomerCode='CUS-003973'
 
 select * from CustomerDetails where CustomerID=2379
 
-select * from SalesPerson where SalesPersonID=250
-select * from SalesPerson where SalesPersonID=250
+select * from SalesPerson where CustomerID=3968
+select * from SalesPerson where SalesPersonID=532
 
 select * from vSalesPerson where EmpID='359'
 
+select * from  Customer where CustomerCode='CUS-006405'

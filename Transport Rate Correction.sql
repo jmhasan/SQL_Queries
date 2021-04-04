@@ -1,0 +1,1 @@
+select xordernum,xcus,xchgdel,xstatusord from opord where xordernum='PCMLCO--0321-001945'

@@ -3,10 +3,10 @@ select h.xadvnum,a.xqtychl,sum(d.xqtychl) from opchallan h join opchalland d on 
 join opadvice a on a.zid=h.zid and a.xadvnum=h.xadvnum where h.xadvnum<>'' and xstatuschl='3-Invoiced'
 group by h.xadvnum,a.xqtychl having sum(d.xqtychl)<>a.xqtychl
 
-select  xadvnum,xqtysms,xqty,xqtychl,xqtycut,xchallantime,xstatusadvmach from opadvice where xadvnum='PCMLDOA-0820-007192' 
+select  xadvnum,xqtysms,xqty,xqtychl,xqtycut,xchallantime,xstatusadvmach from opadvice where xadvnum='PCMLDOA-0121-013536' 
 
-select xmachnum,xchlnum,xconfirmt from opchallan where xadvnum='PCMLDOA-0820-007192'
-select xmachnum,xchallantime from opmachadviced where xadvnum='PCMLDOA-0720-007713'
+select xmachnum,xchlnum,xconfirmt from opchallan where xadvnum='PCMLDOA-0121-013536'
+select xmachnum,xchallantime from opmachadviced where xadvnum='PCMLDOA-0121-013536'
 
 ---Challan Qty>0 but advice no not in challan 
 select xadvnum,xconfirmt,xqtysms,xqtychl,xqty,xqtycut,xstatusadvmach,xchallantime,xchkt from opadvice  

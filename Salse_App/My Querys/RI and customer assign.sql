@@ -1,10 +1,10 @@
 
-select distinct TerritoryID from RouteInfo where RouteID  in (446,448,469,470,471)
+select distinct TerritoryID from RouteInfo where RouteID=55  in (446,448,469,470,471)
 
-select distinct RouteID  from RouteDetailInfo where   RIID=763 -- in (524,531,532,527,756,775,776)
+select  *  from RouteDetailInfo where   RIID=329 -- in (524,531,532,527,756,775,776)
 
-select * from Territory where TerritoryID  in (157,163,164,165)
-select distinct TSOID from TerritoryDetail where TerritoryID in (157,163,164,165)
+select * from Territory where TerritoryID=55  in (157,163,164,165)
+select distinct TSOID from TerritoryDetail where TerritoryID=55 in (157,163,164,165)
 
 select * from Zone where ZoneID=53
 select * from ZoneDetail where ZoneID=53 --502
@@ -19,3 +19,5 @@ select * from District where DistrictID in (
 select DistrictID from Thana where ThanaID in(561,569,570,341,362,413,285,451,563,564))
 
 select * from  OrderInfo where OrderID=60357
+
+select * from Customer=

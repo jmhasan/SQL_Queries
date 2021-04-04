@@ -1,16 +1,16 @@
 select xmachnum,xadvnum,xdate,xchlnum,xsornum,xvehicle,xdestin,xdelpoint,xdelsite,xstatuschl,xconfirmt,xname,xdelivery,xstatusdorr,
-xshipcode from opchallan where xchlnum ='PCMLCHL-1020-001795' or xchlnum='PCMLCHL-1020-001796'
+xshipcode from opchallan where xchlnum ='PCMLCHL-0221-003878' or xchlnum='PCMLCHL-0221-003879'
 
-select   xmachnum,xsornum,xvehicle,xstatusmach,xname,xsup,xtype from opmachadv where xmachnum='PCMLDOAM0820-003516'
+select   xmachnum,xsornum,xvehicle,xstatusmach,xname,xsup,xtype from opmachadv where xmachnum='PCMLDOAM0221-002086'
 select * from opadvice where xadvnum='PCMLDOA-0620-004660' 
 select * from vmvech where xvehicle='DHAKA METRO U-11-4742'
-select * from opchallan where xmachnum='PCMLDOAM0220-009149'
+select * from opchallan where xmachnum='PCMLDOAM0221-002086'
 
 
 
 select xsornum,xvehicle,xrate,xdestin,xstatusmove,xmovetype,xtype,xdriver,(select xname from prmst where xemp=vmmovereg.xdriver),
 xsup,dumzid,xtypev,xmaxcap,xmaxload,xsdestin,(select xorg from casup where zid=100000 and xsup=vmmovereg.xsup),
-xglref from  vmmovereg where xsornum='PCMLMOV-0820-001404' or xsornum='PCMLMOV-0219-005739' or xsornum='PCMLMOV-0219-006025'
+xglref from  vmmovereg where xsornum='PCMLMOV-0221-001719' or xsornum='PCMLMOV-0219-005739' or xsornum='PCMLMOV-0219-006025'
 
 select xref,xvoucher,xacc,xsub,xdesc01,xvmcode,(select xorg from casup where zid=100000 and xsup=gldetail.xsub) from gldetail 
 where xvoucher in (select xvoucher from glheader where  xref ='PCMLCHL-0820-005614' or xref ='PCMLCHL-0820-005614')
@@ -34,13 +34,13 @@ select * from vmrentset where xvehicle='DHAKA METRO-U-11-4743'
 
 
 --for date time change of challan 
-select xconfirmt from opchallan where xchlnum='PCMLCHL-1020-001795' or xchlnum='PCMLCHL-1020-001796'
+select xconfirmt from opchallan where xchlnum='PCMLCHL-0221-003878' or xchlnum='PCMLCHL-0221-003879'
  
-select xdate from glheader where xref='PCMLCHL-1020-001795' or xref='PCMLCHL-1020-001796' 
-select xdocnum,xtime,xdate from imtrn where xdocnum='PCMLCHL-1020-001795' or xdocnum='PCMLCHL-1020-001796'
+select xdate from glheader where xref='PCMLCHL-0221-003878' or xref='PCMLCHL-0221-003879' 
+select xdocnum,xtime,xdate from imtrn where xdocnum='PCMLCHL-0221-003878' or xdocnum='PCMLCHL-0221-003879'
 select xconfirmt from vmmovereg where xsornum='PCMLMOV-1020-000299'
-select xchallantime from opmachadviced where xmachnum='PCMLDOAM1020-000269'
-select xchallantime from opadvice where xadvnum='PCMLDOA-0820-007100' or xadvnum='PCMLDOA-0820-007192'
+select xchallantime from opmachadviced where xmachnum='PCMLDOAM0221-002086'
+select xchallantime from opadvice where xadvnum='PCMLDOA-0221-002683' or xadvnum='PCMLDOA-0221-002686'
 
 
 

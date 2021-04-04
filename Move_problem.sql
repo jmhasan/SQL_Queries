@@ -1,8 +1,8 @@
-select ztime,xvehicle,xlocate,xmaintstat,zactive,xgroups from vmvech where xvehicle like '%9218%'
+select ztime,xvehicle,xlocate,xmaintstat,zactive,xgroups from vmvech where xvehicle like '%4964%'
 
 select xmaxcap,xpostflag,xdate,xsornum,xvehicle,xdriver,(select xlocate from vmvech where zid=vmmovereg.zid and xvehicle=vmmovereg.xvehicle) Location,
 xsdestin,xmovetype,xreviser,xintime,GETDATE() from vmmovereg where  xmovetype<>'In' and
-xvehicle='BAGERHAT-SHA-11-0014'
+xvehicle='DHAKA METRO U-11-4964'
 
 select xmachnum,xsornum,xvehicle,xstatusmach,xsup,xname,xtype,xrate 
 from opmachadv where xmachnum='PCMLDOAM1020-006233' or xmachnum='PCMLDOAM1020-006232'
