@@ -1,7 +1,7 @@
 DECLARE @fxdate AS date
 DECLARE @txdate AS date
 SET @fxdate = '2021-05-01'
-SET @txdate = '2021-05-11';
+SET @txdate = '2021-05-16';
 
 --SKU and Day  wise Sales 
 DECLARE @DynamicPivotQuery AS NVARCHAR(MAX)
