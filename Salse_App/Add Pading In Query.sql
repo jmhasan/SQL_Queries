@@ -1,0 +1,1 @@
+SELECT 'CUS-'+RIGHT('000000' + CAST(cusid AS varchar), 6),RIGHT('000000' + CAST(ri AS varchar), 6) from retailerdatabase

@@ -1,8 +1,8 @@
-select ztime,xvehicle,xlocate,xmaintstat,zactive,xgroups from vmvech where xvehicle like '%4964%'
+select ztime,xvehicle,xlocate,xmaintstat,zactive,xgroups from vmvech where xvehicle like '%2325%'
 
 select xmaxcap,xpostflag,xdate,xsornum,xvehicle,xdriver,(select xlocate from vmvech where zid=vmmovereg.zid and xvehicle=vmmovereg.xvehicle) Location,
 xsdestin,xmovetype,xreviser,xintime,GETDATE() from vmmovereg where  xmovetype<>'In' and
-xvehicle='DHAKA METRO U-11-4964'
+xvehicle='DHAKA METRO U 11-2325'
 
 select xmachnum,xsornum,xvehicle,xstatusmach,xsup,xname,xtype,xrate 
 from opmachadv where xmachnum='PCMLDOAM1020-006233' or xmachnum='PCMLDOAM1020-006232'
@@ -14,12 +14,9 @@ select  xsornum,xvehicle,xsdestin,xdestin from  vmmovereg where xsornum='PCMLMOV
 
 select * from xcodes where xtype='Warehouse'
 
-xmovetype='In',xreviser='"+#user+"',xdatein='"+#date+"',xintime='"+#time+"'
-
 select * from vmmovereg where xtype='Rent' and xmovetype='Out' and xsdestin='PCML Factory'
 
-select * from vmmoveregd where xsornum in ('PCMLMOV-0820-000896','PCMLMOV-0820-001245','PCMLMOV-0820-001246',
-'PCMLMOV-0820-001247','PCMLMOV-0820-001491','PCMLMOV-0820-001248')
+select * from vmmoveregd where xsornum ='PCMLMOV-0621-005669'
 
 select xsornum,xvehicle, xsdestin,xmovetype,xdriver from  vmmovereg where xsornum='PCMLMOV-0720-006801'
 

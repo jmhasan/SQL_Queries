@@ -1,0 +1,30 @@
+update vmvech set xdriver=(select drvid from vmvechdrvid 
+where substring(xvehicle,LEN(xvehicle)-3,4)=substring(vmvech.xvehicle,LEN(vmvech.xvehicle)-3,4))
+ from vmvech where (select drvid from vmvechdrvid 
+where substring(xvehicle,LEN(xvehicle)-3,4)=substring(vmvech.xvehicle,LEN(vmvech.xvehicle)-3,4)) is not null
+
+
+//location
+select xvehicle,xlocate,(select xlocation from xlocation where SUBSTRING(xvehicle,LEN(xvehicle)-3,4)
+=substring(vmvech.xvehicle,LEN(vmvech.xvehicle)-3,4))
+from vmvech where (select xlocation from xlocation where SUBSTRING(xvehicle,LEN(xvehicle)-3,4)
+=substring(vmvech.xvehicle,LEN(vmvech.xvehicle)-3,4)) is not null
+
+
+
+--location
+select xvehicle,xlocate,(select xlocation from xlocation where SUBSTRING(xvehicle,LEN(xvehicle)-3,4)
+=substring(vmvech.xvehicle,LEN(vmvech.xvehicle)-3,4))
+from vmvech where (select xlocation from xlocation where SUBSTRING(xvehicle,LEN(xvehicle)-3,4)
+=substring(vmvech.xvehicle,LEN(vmvech.xvehicle)-3,4)) is not null
+
+select xvehicle,xdriver,xlocate,xvhcat,xmaxload from vmvech where xtypev='vehicle' and xlocate<>'FINISHED GOODS'
+
+update vmvech set xlocate='FINISHED GOODS' where xtypev='vehicle' and xlocate='Factory'
+
+select xvehicle,xlocation from xlocation 
+where xlocation in(select xcode from xcodes where xtype='Warehouse' and xcodealt='Ghat') 
+
+select * from xcodes where xtype='Warehouse' and xcodealt='Ghat'
+
+select 
