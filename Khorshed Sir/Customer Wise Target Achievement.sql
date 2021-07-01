@@ -1,11 +1,7 @@
 DECLARE @fxdate AS date
 DECLARE @txdate AS date
 SET @fxdate = '2021-06-01'
-<<<<<<< HEAD
 SET @txdate = '2021-06-29';
-=======
-SET @txdate = '2021-06-18';
->>>>>>> 4641648a8ef7c75b29ac42b9a3a7a5cd299a8b27
 
 with custarget (xcus,xorg,xzone,xqty,tillsales) as(
 select t.xcus,c.xorg,c.xbloodgrp,sum(t.xqty/20) xqty,
