@@ -3,7 +3,11 @@ DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
 SET @fxdate = '2021-06-01'
+<<<<<<< HEAD
 SET @txdate = '2021-06-29'
+=======
+SET @txdate = '2021-06-18'
+>>>>>>> 4641648a8ef7c75b29ac42b9a3a7a5cd299a8b27
 set @xyear=2021
 set @xper=06;
 
