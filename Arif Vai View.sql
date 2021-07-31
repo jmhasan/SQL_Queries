@@ -7,12 +7,13 @@ group by xtsoid
 select * from aiview
 
 create VIEW aicalendar as 
+
 select zid,CONVERT(DATE,xdate) xdate,xyear,xper,xweekmth,xmonthname,day(xdate) xdayno, UPPER(Left(CAST(xname AS varchar), 3)) xname, 
 (case when xname='Saturday' then 1 when xname='Sunday' then 2 when xname='Monday' then 3
  when xname='Tuesday' then 4  when xname='Wednesday' then 5 when xname='Thursday' then 6   else 7 end) xday ,
 xtsoid from cadate, aiview where  
  xyear=(case when MONTH(getdate())=12 then year(getdate())+1 else year(getdate())  end) and 
-xper=(case when MONTH(getdate())=12 then MONTH(getdate()) else MONTH(getdate())+1 end) 
+xper=(case when MONTH(getdate())=12 then 01 else MONTH(getdate())+1 end) 
 
 
 select * from    zicalendar
