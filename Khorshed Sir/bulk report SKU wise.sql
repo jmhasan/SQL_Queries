@@ -2,7 +2,7 @@
 select c.xbloodgrp Zone,d.xtypecat Item_Type,
 sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt))='2021-08-04' then xqtychl/20 else 0 end) ondsales,
 
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-08-01' and '2021-07-04' 
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-08-01' and '2021-08-04' 
  then (xqtychl/20) else 0 end) tillsales,
 
 sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-07-01' and '2021-07-04'
