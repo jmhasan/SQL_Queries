@@ -1,8 +1,8 @@
-select ztime,xvehicle,xlocate,xmaintstat,zactive,xgroups from vmvech where xvehicle like '%2325%'
+select ztime,xvehicle,xlocate,xmaintstat,zactive,xgroups from vmvech where xvehicle like '%4963%'
 
 select xmaxcap,xpostflag,xdate,xsornum,xvehicle,xdriver,(select xlocate from vmvech where zid=vmmovereg.zid and xvehicle=vmmovereg.xvehicle) Location,
 xsdestin,xmovetype,xreviser,xintime,GETDATE() from vmmovereg where  xmovetype<>'In' and
-xvehicle='DHAKA METRO U 11-2325'
+xvehicle='DHAKA METRO U-11-4963'
 
 select xmachnum,xsornum,xvehicle,xstatusmach,xsup,xname,xtype,xrate 
 from opmachadv where xmachnum='PCMLDOAM1020-006233' or xmachnum='PCMLDOAM1020-006232'
@@ -10,7 +10,8 @@ from opmachadv where xmachnum='PCMLDOAM1020-006233' or xmachnum='PCMLDOAM1020-00
 select xvehicle,COUNT(xmovetype) from vmmovereg where xtype='DO Delivery' and xtypev='Vehicle' and xmovetype<>'In'
 group by xvehicle having COUNT(xmovetype)>1
 
-select  xsornum,xvehicle,xsdestin,xdestin from  vmmovereg where xsornum='PCMLMOVS1120-000006' 
+select  xsornum,xvehicle,xsdestin,xdestin,xpostflag from  vmmovereg where xsornum='PCMLMOV-0821-001070' 
+select  * from  vmmoveregd where xsornum='PCMLMOV-0821-001070' 
 
 select * from xcodes where xtype='Warehouse'
 
