@@ -10,13 +10,8 @@ from opmachadv where xmachnum='PCMLDOAM1020-006233' or xmachnum='PCMLDOAM1020-00
 select xvehicle,COUNT(xmovetype) from vmmovereg where xtype='DO Delivery' and xtypev='Vehicle' and xmovetype<>'In'
 group by xvehicle having COUNT(xmovetype)>1
 
-<<<<<<< HEAD
-select  xsornum,xvehicle,xsdestin,xdestin,xmovetype,xpostflag from  vmmovereg where xsornum='PCMLMOV-0821-000715'
-select xsornum,xrow,xsrqnum,xmovetype,xstatus from  vmmoveregd where xsornum='PCMLMOV-0821-000715' 
-=======
 select  xsornum,xvehicle,xsdestin,xdestin,xpostflag from  vmmovereg where xsornum='PCMLMOV-0821-001070' 
 select  * from  vmmoveregd where xsornum='PCMLMOV-0821-001070' 
->>>>>>> b2371c0e15b37ae714b1174264733d379d0bb4c6
 
 select * from xcodes where xtype='Warehouse'
 
