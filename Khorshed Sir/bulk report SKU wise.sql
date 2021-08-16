@@ -1,14 +1,14 @@
   
 select c.xbloodgrp Zone,d.xtypecat Item_Type,
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt))='2021-08-14' then xqtychl/20 else 0 end) ondsales,
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt))='2021-08-15' then xqtychl/20 else 0 end) ondsales,
 
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-08-01' and '2021-08-14' 
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-08-01' and '2021-08-15' 
  then (xqtychl/20) else 0 end) tillsales,
 
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-07-01' and '2021-07-14'
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-07-01' and '2021-07-15'
 then  (xqtychl/20) else 0 end) tilldatelastmonth,
 
-sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2020-08-01' and '2020-08-14' 
+sum(case when CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2020-08-01' and '2020-08-15' 
 then  (xqtychl/20) else 0 end) tilldatelastyear
 
 from opchallan h join opchalland d on h.zid=d.zid and h.xchlnum=d.xchlnum

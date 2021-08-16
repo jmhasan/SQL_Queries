@@ -1,7 +1,7 @@
 DECLARE @fxdate AS date
 DECLARE @txdate AS date
 SET @fxdate = '2021-08-01'
-SET @txdate = '2021-08-14';
+SET @txdate = '2021-08-15';
 
 with custarget (xcus,xorg,xzone,xqty,tillsales) as(
 select t.xcus,c.xorg,c.xbloodgrp,sum(t.xqty/20) xqty,
