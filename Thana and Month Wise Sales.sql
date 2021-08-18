@@ -1,0 +1,41 @@
+--With Allocation 
+with retail as (
+select o.xzone,c.xgcus,o.xcus,c.xorg,o.xid,o.xoutletname,o.xstatus,o.xthana,o.xdistrict,o.xriid,xconfirmt, 
+DATEADD(D,0,DATEDIFF(D,0,DATEADD(HOUR,-6,xconfirmt))) todate,(d.xqtychl) total,
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=1 then d.xqtychl else  0 end "JAN",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=2 then d.xqtychl else  0 end  "FEB",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=3 then d.xqtychl else  0 end  "MAR",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=4 then d.xqtychl else  0 end  "APR",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=5 then d.xqtychl else  0 end  "MAY",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=6 then d.xqtychl else  0 end  "JUN",
+ case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=7 then d.xqtychl else  0 end "JUL",
+ case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=8 then d.xqtychl else  0 end "AUG"
+ from opchallan h join opchalland d on h.zid=d.zid and h.xchlnum=d.xchlnum
+join cacus c on c.zid=h.zid and c.xcus=h.xcus  join caoutlet o on h.zid=o.zid and h.xordernum=o.xid
+where   CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-01-01' and '2021-08-07' and 
+c.xsimcardno in ('Dhaka','Out Dhaka') and c.xbloodgrp='JESSORE' and coalesce(h.xdornum,'')<>'Allocated' --and h.xordernum<>''
+
+union all
+select o.xzone, c.xgcus,o.xcus,c.xorg,o.xid,o.xoutletname,o.xstatus,o.xthana,o.xdistrict,o.xriid, xconfirmt,
+ DATEADD(D,0,DATEDIFF(D,0,DATEADD(HOUR,-6,xconfirmt))) todate,d.xqty total,
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=1 then d.xqty else  0 end "JAN",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=2 then d.xqty else  0 end  "FEB",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=3 then d.xqty else  0 end  "MAR",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=4 then d.xqty else  0 end  "APR",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=5 then d.xqty else  0 end  "MAY",
+case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=6 then d.xqty else  0 end  "JUN",
+ case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=7 then d.xqty else  0 end "JUL",
+ case when month( CONVERT(date,DATEADD(HOUR,-6,xconfirmt)))=8 then d.xqty else  0 end "AUG"
+from opchallan h join opchallanalc d on h.zid=d.zid and h.xchlnum=d.xchlnum
+join cacus c on c.zid=h.zid and c.xcus=h.xcus  join caoutlet o on h.zid=o.zid and d.xid=o.xid
+where  CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between '2021-01-01' and '2021-08-07' and 
+c.xsimcardno in ('Dhaka','Out Dhaka') and c.xbloodgrp='JESSORE' and coalesce(h.xdornum,'')='Allocated')
+
+select a.xzone Zone_Name,xcus,xorg,xdistrict,xthana,
+sum(JAN) JAN,sum(FEB) FEB, 
+sum(MAR) MAR,sum(APR) APR,sum(MAY) MAY,
+sum(JUN) JUN,sum(JUL) JUL,sum(AUG) AUG
+ from retail a 
+group by a.xzone,xdistrict,xthana,xcus,xorg
+
+
