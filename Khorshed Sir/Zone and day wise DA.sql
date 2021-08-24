@@ -5,13 +5,13 @@ DECLARE @ColumnName AS NVARCHAR(MAX)
 SELECT @ColumnName= ISNULL(@ColumnName + ',','') 
        + QUOTENAME(xymonthfrom)
 FROM (SELECT  xdate as xymonthfrom FROM cadate 
-where zid=100000 and xdate  between '2021-08-01' and '2021-08-18' ) AS xymonthfrom
+where zid=100000 and xdate  between '2021-08-01' and '2021-08-23' ) AS xymonthfrom
  
 --Prepare the PIVOT query using the dynamic 
 SET @DynamicPivotQuery = 
   N'select  xbloodgrp, ' + @ColumnName + ' from (select c.xbloodgrp,CONVERT(date,DATEADD(HOUR,-6,a.xconfirmt)) xymonthfrom,
   (xqtysms-xqtycut)/20 as xqtysms from opadvice a join cacus c on a.zid=c.zid and a.xcus=c.xcus
-where CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between ''2021-08-01'' and ''2021-08-18'' and  xstatusadvmach<>''1-Open'' ) ps
+where CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) between ''2021-08-01'' and ''2021-08-23'' and  xstatusadvmach<>''1-Open'' ) ps
     PIVOT(SUM(xqtysms) 
           FOR xymonthfrom IN (' + @ColumnName + ')) AS pvt'
 --Execute the Dynamic Pivot Query
