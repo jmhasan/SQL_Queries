@@ -2,10 +2,10 @@ DECLARE @fxdate AS date
 DECLARE @txdate AS date
 DECLARE @xyear as int
 DECLARE @xper as int
-SET @fxdate = '2021-08-01'
-SET @txdate = '2021-08-28'
+SET @fxdate = '2021-09-01'
+SET @txdate = '2021-09-06'
 set @xyear=2021
-set @xper=08;
+set @xper=09;
 
 with cte as
 (select xdiv,xzone,xteam xemp,(select xempnew from opritargetdt where xyear=@xyear and xper=@xper and xemp=opchallandt.xteam) xempnew,
