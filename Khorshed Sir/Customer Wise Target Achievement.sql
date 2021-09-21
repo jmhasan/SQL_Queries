@@ -1,9 +1,9 @@
---Customer Wise Target achev
+--Customer_Wise_Target_achev
 
 DECLARE @fxdate AS date
 DECLARE @txdate AS date
 SET @fxdate = '2021-09-01'
-SET @txdate = '2021-09-08';
+SET @txdate = '2021-09-20';
 
 with custarget (xcus,xorg,xzone,xqty,tillsales) as(
 select t.xcus,c.xorg,c.xbloodgrp,sum(t.xqty/20) xqty,

@@ -3,7 +3,7 @@
 DECLARE @fxdate AS date
 DECLARE @txdate AS date
 SET @fxdate = '2021-09-01'
-SET @txdate = '2021-09-08';
+SET @txdate = '2021-09-20';
 
 --SKU and Day  wise Sales 
 DECLARE @DynamicPivotQuery AS NVARCHAR(MAX)
@@ -19,7 +19,7 @@ SET @DynamicPivotQuery =
   N'select  Bag_Type, ' + @ColumnName + ' from (select (select xitemold from caitem where zid=opchallandt.zid and xitem=opchallandt.xitem )+'' ''+
  (select coalesce((select xcode from xmapbag where zid=opchallandt.zid and xtypecat=opchallandt.xtypecat and xitem=opchallandt.xitem),''Customer Bag'')) Bag_Type,
  CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) xymonthfrom, xqtychl from opchallandt where CONVERT(date,DATEADD(HOUR,-6,xconfirmt)) 
- BETWEEN ''2021-09-01'' and ''2021-09-08''
+ BETWEEN ''2021-09-01'' and ''2021-09-20''
 and  xstatuschl=''3-Invoiced'' and xdiv<>''Bag Plant'') ps
     PIVOT(SUM(xqtychl) 
           FOR xymonthfrom IN (' + @ColumnName + ')) AS pvt'
